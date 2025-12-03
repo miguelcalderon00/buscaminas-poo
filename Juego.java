@@ -14,6 +14,8 @@ import ec.edu.ups.poo.buscaminas.modelo.Tablero;
 import ec.edu.ups.poo.buscaminas.vista.VistaConsola;
 
 public class Juego {
+	// CONSTANTE PARA CENTRALIZAR EL NOMBRE DEL ARCHIVO GUARDADO
+	private static final String ARCHIVO_PARTIDA = "partida.dat";
 
     private Tablero tablero;
     private VistaConsola vista;
@@ -29,6 +31,11 @@ public class Juego {
 
     // ➤ Comentario agregado para mejorar claridad y cumplir con el avance del examen POO.
     //    Este comentario NO altera el funcionamiento, pero documenta el inicio del flujo principal.
+    /**
+     * Método principal del juego Buscaminas.
+     * Muestra el menú en consola y gestiona el ciclo de juego
+     * hasta que el usuario pierde, gana o decide salir.
+     */
     public void iniciar() {
         System.out.println("=== BUSCAMINAS POO ===");
 
@@ -119,24 +126,32 @@ public class Juego {
     }
 
     // ----------------- PERSISTENCIA (GUARDAR / CARGAR) -----------------
+    /**
+     * Guarda el estado actual del tablero en un archivo binario.
+     * Permite pausar la partida y continuarla más adelante.
+     */
 
     private void guardarPartida() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("partida.dat"))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_PARTIDA))) {
             oos.writeObject(tablero);
-            System.out.println("✅ Partida guardada correctamente en 'partida.dat'.");
+            System.out.println("✅ Partida guardada correctamente en '" + ARCHIVO_PARTIDA + "'.");
         } catch (IOException e) {
             System.out.println("❌ Error al guardar la partida: " + e.getMessage());
         }
     }
+ 
+    /**
+     * Carga el estado del tablero desde el archivo de guardado, si existe.
+     * Si el archivo no se encuentra, se informa al usuario por consola.
+     */
 
     private void cargarPartida() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("partida.dat"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ARCHIVO_PARTIDA))) {
             this.tablero = (Tablero) ois.readObject();
             System.out.println("✅ Partida cargada correctamente.");
         } catch (FileNotFoundException e) {
-            System.out.println("❌ No existe una partida guardada todavía.");
+            System.out.println("❌ No existe una partida guardada todavía en '" + ARCHIVO_PARTIDA + "'.");
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("❌ Error al cargar la partida: " + e.getMessage());
+            System.out.println("❌ Error al cargar la partida desde '" + ARCHIVO_PARTIDA + "': " + e.getMessage());
         }
     }
-}
