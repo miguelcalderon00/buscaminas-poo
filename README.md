@@ -1,9 +1,9 @@
-📌 Proyecto Buscaminas en Java – Examen POO
+ Proyecto Buscaminas en Java – Examen POO
 
 Este proyecto implementa una versión del clásico juego Buscaminas, desarrollado en Java como parte del examen práctico de la asignatura Programación Orientada a Objetos (POO).
 
-🧩 Características implementadas
-✔️ Etapa 1 – Modelo
+ Características implementadas
+ Etapa 1 – Modelo
 
 Clase Casilla con atributos: mina, descubierta, marcada y número de minas alrededor.
 
@@ -17,7 +17,7 @@ Cálculo automático del número de minas vecinas
 
 Métodos para descubrir, marcar y validar casillas
 
-✔️ Etapa 2 – Vista
+Etapa 2 – Vista
 
 Clase VistaConsola encargada de mostrar el tablero en pantalla.
 
@@ -31,7 +31,7 @@ Minas
 
 Casillas marcadas como sospecha
 
-✔️ Etapa 3 – Controlador
+ Etapa 3 – Controlador
 
 Clase Juego con toda la lógica principal:
 
@@ -43,7 +43,7 @@ Validación con excepciones personalizadas
 
 Condición de victoria y derrota
 
-✔️ Etapa 4 – Persistencia
+ Etapa 4 – Persistencia
 
 Guardado de partida en archivo partida.dat
 
@@ -51,7 +51,7 @@ Carga de partidas previas
 
 Uso de Serializable
 
-🧪 Excepciones personalizadas
+ Excepciones personalizadas
 
 Implementadas según la rúbrica:
 
@@ -59,7 +59,7 @@ CasillaYaDescubiertaException
 
 Otras validaciones mediante ArrayIndexOutOfBoundsException e InputMismatchException.
 
-▶️ Cómo ejecutar el programa
+Cómo ejecutar el programa
 
 Descargar el proyecto
 
@@ -82,12 +82,14 @@ C = Cargar
 
 S = Salir
 
-📎 Enlace al repositorio
+ Enlace al repositorio
 
-🔗 https://github.com/miguelcalderon00/buscaminas-caca
+(https://github.com/miguelcalderon00/buscaminas-poo)
 
-👨‍💻 Autor
+ Autores
 
-Miguel Abraham Calderón
+Miguel Calderón
+Milton Manosalvas
+Elly Anilema
 Universidad Politécnica Salesiana
 Examen Práctico – Programación Orientada a Objetos
